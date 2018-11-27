@@ -1,23 +1,27 @@
 package edu.insightr.gildedrose;
 
+import java.util.List;
+
 public class Inventory {
 
-    private Item[] items;
 
+    private Item[] items;
+    
+	private List<IStrategy> listStrategy ;
 
     public Inventory(Item[] items) {
         super();
         this.items = items;
     }
-
-    public Item[] getItems(){
+	
+	public Item[] getItems(){
         return this.items;
     }
 
     public void setItems(Item[] items) {
         this.items = items;
     }
-
+	
     public Inventory() {
         super();
         items = new Item[]{
@@ -30,6 +34,11 @@ public class Inventory {
         };
 
     }
+
+    
+    public void updateInventory(){
+		//à finir
+	}
 
     public void printInventory() {
         System.out.println("***************");
@@ -45,22 +54,8 @@ public class Inventory {
             if (items[i].getName() != "Aged Brie"
                     && items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
                 if (items[i].getQuality() > 0) {
-                    if (items[i].getName() != "Sulfuras, Hand of Ragnaros" && items[i].getName() != "Conjured Mana Cake") {
+                    if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
                         items[i].setQuality(items[i].getQuality() - 1);
-                    }
-                    else
-                    {
-                        if (items[i].getName() == "Conjured Mana Cake")
-                        {
-                            if (items[i].getQuality() >= 2)
-                            {
-                                items[i].setQuality((items[i].getQuality() - 2));
-                            }
-                            else
-                            {
-                                items[i].setQuality(0);
-                            }
-                        }
                     }
                 }
             } else {
@@ -106,6 +101,8 @@ public class Inventory {
             }
         }
     }
+
+
 
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
