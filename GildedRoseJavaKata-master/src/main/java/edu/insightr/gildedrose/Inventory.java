@@ -18,6 +18,7 @@ public class Inventory {
         this.items = items;
     }
 
+    // changer le constructeur pour ajouter des instances de A, B ou C
     public Inventory() {
         super();
         items = new Item[]{
@@ -30,6 +31,14 @@ public class Inventory {
         };
 
     }
+	
+    public void updateInventory() {
+        UpdateVisitor visitor = new UpdateVisitor();
+        Item[] items = this.items;
+        items[0] = new DexterityItem("+5 Dexterity Vest", 10, 20);
+        for( int i=0 ; i < items.length ; i++ ){
+            items[i].accept( visitor);
+        }
 
     public void printInventory() {
         System.out.println("***************");
