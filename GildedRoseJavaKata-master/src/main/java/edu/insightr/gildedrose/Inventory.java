@@ -3,14 +3,14 @@ package edu.insightr.gildedrose;
 public class Inventory {
 
     private Item[] items;
-
+    DebugVisitor visitor = new DebugVisitor();
 
     public Inventory(Item[] items) {
         super();
         this.items = items;
     }
-
-    public Item[] getItems(){
+	
+	public Item[] getItems() {
         return this.items;
     }
 
@@ -114,4 +114,6 @@ public class Inventory {
             inventory.printInventory();
         }
     }
+
+    
 }
